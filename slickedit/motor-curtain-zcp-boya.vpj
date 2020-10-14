@@ -1,0 +1,364 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+    Version="10.0"
+    VendorName="SlickEdit"
+    TemplateName="GNU C/C++"
+    WorkingDir="."
+    BuildSystem="vsbuild">
+    <Config
+        Name="Debug"
+        Type="gnuc"
+        DebugCallbackName="gdb"
+        Version="1"
+        OutputFile="%bdmotor-curtain-zcp-boya.exe"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='gcc -c %xup  %defd -g -o "%bd%n%oe" %i "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link"
+                ShowOnMenu="Never"
+                Dialog="_gnuc_options_form Link"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='gcc %xup -g -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+            <Target
+                Name="dash"
+                MenuCaption="-"
+                Deletable="0">
+                <Exec/>
+            </Target>
+            <Target
+                Name="GNU C Options"
+                MenuCaption="GNU C &amp;Options..."
+                ShowOnMenu="HideIfNoCmdLine"
+                Deletable="0"
+                SaveOption="SaveNone">
+                <Exec
+                    CmdLine="gnucoptions"
+                    Type="Slick-C"/>
+            </Target>
+        </Menu>
+        <Rules Name="Compile">
+            <Rule
+                InputExts="*.ada"
+                OutputExts="*.o"
+                LinkObject="1">
+                <Exec CmdLine='gnat -g -c -o "%bd%n.o" "%f"'/>
+            </Rule>
+            <Rule
+                InputExts="*.adb"
+                OutputExts="*.o"
+                LinkObject="1">
+                <Exec CmdLine='gnat -g -c -o "%bd%n.o" "%f"'/>
+            </Rule>
+            <Rule
+                InputExts="*.f"
+                OutputExts="*.o"
+                LinkObject="1">
+                <Exec CmdLine='gfortran -c -g -o "%bd%n.o" "%f"'/>
+            </Rule>
+            <Rule
+                InputExts="*.f90"
+                OutputExts="*.o"
+                LinkObject="1">
+                <Exec CmdLine='gfortran -c -g -o "%bd%n.o" "%f"'/>
+            </Rule>
+            <Rule
+                InputExts="*.d"
+                OutputExts="*.o"
+                LinkObject="1">
+                <Exec CmdLine='gdc -c -g -o "%bd%n.o" "%f"'/>
+            </Rule>
+        </Rules>
+        <List Name="GNUC Options">
+            <Item
+                Name="LinkerOutputType"
+                Value="Executable"/>
+        </List>
+    </Config>
+    <Config
+        Name="Release"
+        Type="gnuc"
+        DebugCallbackName="gdb"
+        Version="1"
+        OutputFile="%bdmotor-curtain-zcp-boya.exe"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='gcc -c %xup %defd -o "%bd%n%oe" %i "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link"
+                ShowOnMenu="Never"
+                Dialog="_gnuc_options_form Link"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='gcc %xup -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                Dialog="_gnuc_options_form Compile"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                Dialog="_gnuc_options_form Run/Debug"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                Deletable="0"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+            <Target
+                Name="dash"
+                MenuCaption="-"
+                Deletable="0">
+                <Exec/>
+            </Target>
+            <Target
+                Name="GNU C Options"
+                MenuCaption="GNU C &amp;Options..."
+                ShowOnMenu="HideIfNoCmdLine"
+                Deletable="0"
+                SaveOption="SaveNone">
+                <Exec
+                    CmdLine="gnucoptions"
+                    Type="Slick-C"/>
+            </Target>
+        </Menu>
+        <Rules Name="Compile">
+            <Rule
+                InputExts="*.ada"
+                OutputExts="*.o"
+                LinkObject="1">
+                <Exec CmdLine='gnat -O -c -o "%bd%n.o" "%f"'/>
+            </Rule>
+            <Rule
+                InputExts="*.adb"
+                OutputExts="*.o"
+                LinkObject="1">
+                <Exec CmdLine='gnat -O -c -o "%bd%n.o" "%f"'/>
+            </Rule>
+            <Rule
+                InputExts="*.f"
+                OutputExts="*.o"
+                LinkObject="1">
+                <Exec CmdLine='gfortran -O -g -o "%bd%n.o" "%f"'/>
+            </Rule>
+            <Rule
+                InputExts="*.f90"
+                OutputExts="*.o"
+                LinkObject="1">
+                <Exec CmdLine='gfortran -O -g -o "%bd%n.o" "%f"'/>
+            </Rule>
+            <Rule
+                InputExts="*.d"
+                OutputExts="*.o"
+                LinkObject="1">
+                <Exec CmdLine='gdc -c -g -o "%bd%n.o" "%f"'/>
+            </Rule>
+        </Rules>
+        <List Name="GNUC Options">
+            <Item
+                Name="LinkerOutputType"
+                Value="Executable"/>
+        </List>
+    </Config>
+    <Files>
+        <Folder
+            Name="Source Files"
+            Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.scala;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go;*.groovy;*.gsh"
+            GUID="{03D910D9-A96D-495C-321D-45091597EBB8}">
+            <F N="../user/alloter.c"/>
+            <F N="../user/comfunc.c"/>
+            <F N="../user/dev_ctrl.c"/>
+            <F N="../user/dev_show.c"/>
+            <F N="../user/encode.c"/>
+            <F N="../user/main.c"/>
+            <F N="../user/motor_func.c"/>
+            <F N="../user/protocol.c"/>
+            <F N="../user/smart_plc.c"/>
+            <F N="../user/state_synchronization.c"/>
+            <F N="../user/stm8_interrupt_vector.c"/>
+            <F N="../library/src/stm8s_adc1.c"/>
+            <F N="../library/src/stm8s_adc2.c"/>
+            <F N="../library/src/stm8s_awu.c"/>
+            <F N="../library/src/stm8s_beep.c"/>
+            <F N="../library/src/stm8s_can.c"/>
+            <F N="../library/src/stm8s_clk.c"/>
+            <F N="../library/src/stm8s_exti.c"/>
+            <F N="../library/src/stm8s_flash.c"/>
+            <F N="../library/src/stm8s_gpio.c"/>
+            <F N="../library/src/stm8s_i2c.c"/>
+            <F N="../library/src/stm8s_itc.c"/>
+            <F N="../library/src/stm8s_iwdg.c"/>
+            <F N="../library/src/stm8s_rst.c"/>
+            <F N="../library/src/stm8s_spi.c"/>
+            <F N="../library/src/stm8s_tim1.c"/>
+            <F N="../library/src/stm8s_tim2.c"/>
+            <F N="../library/src/stm8s_tim3.c"/>
+            <F N="../library/src/stm8s_tim4.c"/>
+            <F N="../library/src/stm8s_tim5.c"/>
+            <F N="../library/src/stm8s_tim6.c"/>
+            <F N="../library/src/stm8s_uart1.c"/>
+            <F N="../library/src/stm8s_uart2.c"/>
+            <F N="../library/src/stm8s_uart3.c"/>
+            <F N="../library/src/stm8s_wwdg.c"/>
+            <F N="../user/update_from_63.c"/>
+        </Folder>
+        <Folder
+            Name="Header Files"
+            Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.h++;*.inc;*.sh;*.cpy;*.if"
+            GUID="{3F1FA48D-C818-47AD-6C39-4264FDCC8A99}">
+            <F N="../user/alloter.h"/>
+            <F N="../user/comfunc.h"/>
+            <F N="../user/config.h"/>
+            <F N="../user/dev_ctrl.h"/>
+            <F N="../user/dev_show.h"/>
+            <F N="../user/encode.h"/>
+            <F N="../user/headfiles.h"/>
+            <F N="../user/main.h"/>
+            <F N="../user/motor_func.h"/>
+            <F N="../user/protocol.h"/>
+            <F N="../user/smart_plc.h"/>
+            <F N="../user/state_synchronization.h"/>
+            <F N="../library/inc/stm8s.h"/>
+            <F N="../user/STM8S207C.h"/>
+            <F N="../library/inc/stm8s_adc1.h"/>
+            <F N="../library/inc/stm8s_adc2.h"/>
+            <F N="../library/inc/stm8s_awu.h"/>
+            <F N="../library/inc/stm8s_beep.h"/>
+            <F N="../library/inc/stm8s_can.h"/>
+            <F N="../library/inc/stm8s_clk.h"/>
+            <F N="../user/stm8s_conf.h"/>
+            <F N="../library/inc/stm8s_exti.h"/>
+            <F N="../library/inc/stm8s_flash.h"/>
+            <F N="../library/inc/stm8s_gpio.h"/>
+            <F N="../library/inc/stm8s_i2c.h"/>
+            <F N="../library/inc/stm8s_itc.h"/>
+            <F N="../library/inc/stm8s_iwdg.h"/>
+            <F N="../library/inc/stm8s_rst.h"/>
+            <F N="../library/inc/stm8s_spi.h"/>
+            <F N="../library/inc/stm8s_tim1.h"/>
+            <F N="../library/inc/stm8s_tim2.h"/>
+            <F N="../library/inc/stm8s_tim3.h"/>
+            <F N="../library/inc/stm8s_tim4.h"/>
+            <F N="../library/inc/stm8s_tim5.h"/>
+            <F N="../library/inc/stm8s_tim6.h"/>
+            <F N="../library/inc/stm8s_type.h"/>
+            <F N="../library/inc/stm8s_uart1.h"/>
+            <F N="../library/inc/stm8s_uart2.h"/>
+            <F N="../library/inc/stm8s_uart3.h"/>
+            <F N="../library/inc/stm8s_wwdg.h"/>
+            <F N="../user/uart_io_ctrl.h"/>
+            <F N="../user/update_from_63.h"/>
+        </Folder>
+        <Folder
+            Name="Resource Files"
+            Filters="*.ico;*.cur;*.dlg"
+            GUID="{51FEC097-E9F6-4E8E-FA43-CDDA8EF1E98D}"/>
+        <Folder
+            Name="Bitmaps"
+            Filters="*.bmp"
+            GUID="{16200A2A-A550-46AB-6D73-10B3A8471A9C}"/>
+        <Folder
+            Name="Other Files"
+            Filters=""
+            GUID="{F5E4CD35-C1EA-431D-C5C0-653934C1F1B6}"/>
+    </Files>
+</Project>
